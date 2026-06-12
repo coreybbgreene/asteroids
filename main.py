@@ -7,6 +7,8 @@
 import pygame
 from logger import log_state
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT
+from circleshape import CircleShape
+from player import Player
 
 def main():
     # Initialize pygame and create the game window
@@ -17,6 +19,13 @@ def main():
     clock = pygame.time.Clock()
     dt = 0.0
 
+    # Create groups
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+
+    # Create the player
+    Player.containers = (updatable, drawable)
+    player = Player((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2))
 
     while True:
         log_state()
@@ -24,6 +33,11 @@ def main():
             if event.type == pygame.QUIT:
                 return
         screen.fill("black")
+        updatable.update(dt)
+        #player.update(dt)
+        for sprite in drawable:
+            sprite.draw(screen)
+        #player.draw(screen)
         pygame.display.flip()
         clock.tick(60)
         dt = clock.tick(60) / 1000
