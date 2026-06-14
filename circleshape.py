@@ -1,7 +1,7 @@
 # Title: circleshape.py
 # Author: Boot.dev
 # Date Created: 11 June, 2026
-# Last Update: 11 June, 2026
+# Last Update: 13 June, 2026
 # Description: CircleShape Class
 
 import pygame
@@ -32,3 +32,11 @@ class CircleShape(pygame.sprite.Sprite):
     def update(self, dt: float) -> None:
         # must override
         pass
+
+    def collides_with(self, other) -> bool:
+        distance = pygame.math.Vector2.distance_to(self.position, other.position)
+        if distance <= (self.radius + other.radius):
+            return True
+        else:
+            return False
+    
