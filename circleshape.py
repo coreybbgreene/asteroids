@@ -1,4 +1,14 @@
+# Title: circleshape.py
+# Author: Boot.dev
+# Date Created: 11 June, 2026
+# Last Update: 11 June, 2026
+# Description: CircleShape Class
+
 import pygame
+
+# CircleShape
+# |_ Asteroid
+# |_ Player
 
 # Base class for game objects
 class CircleShape(pygame.sprite.Sprite):

@@ -1,7 +1,7 @@
 # Title: main.py
 # Author: Corey Greene
 # Date Created: 11 June, 2026
-# Last Update: 11 June, 2026
+# Last Update: 13 June, 2026
 # Description: Asteroid game for Boot.dev
 
 import pygame
@@ -9,6 +9,8 @@ from logger import log_state
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT
 from circleshape import CircleShape
 from player import Player
+from asteroid import Asteroid
+from asteroidfield import AsteroidField
 
 def main():
     # Initialize pygame and create the game window
@@ -22,10 +24,18 @@ def main():
     # Create groups
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
+    asteroids = pygame.sprite.Group()
 
     # Create the player
     Player.containers = (updatable, drawable)
     player = Player((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2))
+
+    # Create the asteroids
+    Asteroid.containers = (updatable, drawable, asteroids)
+
+    # Create the asteroid field
+    AsteroidField.containers = (updatable)
+    asteroid_field = AsteroidField()
 
     while True:
         log_state()
@@ -34,10 +44,8 @@ def main():
                 return
         screen.fill("black")
         updatable.update(dt)
-        #player.update(dt)
         for sprite in drawable:
             sprite.draw(screen)
-        #player.draw(screen)
         pygame.display.flip()
         clock.tick(60)
         dt = clock.tick(60) / 1000

@@ -2,11 +2,15 @@
 # Author: Corey Greene
 # Date Created: 11 June, 2026
 # Last Update: 11 June, 2026
-# Description: Player class for the Asteroid game
+# Description: Player Class
 
 import pygame
 from circleshape import CircleShape
 from constants import PLAYER_RADIUS, LINE_WIDTH, PLAYER_TURN_SPEED, PLAYER_SPEED
+
+# CircleShape
+# |_ Asteroid
+# |_ Player
 
 class Player(CircleShape):
     containers: tuple[pygame.sprite.Group, ...]

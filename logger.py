@@ -1,3 +1,9 @@
+# Title: logger.py
+# Author: Boot.dev
+# Date Created: 11 June, 2026
+# Last Update: 11 June, 2026
+# Description: Logging algorithm provided by Boot.dev
+
 import inspect
 import json
 import math
