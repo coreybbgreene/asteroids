@@ -1,7 +1,7 @@
 # Title: constants.py
 # Author: Corey Greene
 # Date Created: 11 June, 2026
-# Last Update: 11 June, 2026
+# Last Update: 24 June, 2026
 # Description: A module containing all constants used within the Asteroid game.
 
 SCREEN_WIDTH = 1280
@@ -17,3 +17,8 @@ ASTEROID_MIN_RADIUS = 20
 ASTEROID_KINDS = 3
 ASTEROID_SPAWN_RATE_SECONDS = 0.8
 ASTEROID_MAX_RADIUS = ASTEROID_MIN_RADIUS * ASTEROID_KINDS
+
+SHOT_RADIUS = 5
+PLAYER_SHOOT_SPEED = 500
+
+PLAYER_SHOOT_COOLDOWN_SECONDS = 0.3
